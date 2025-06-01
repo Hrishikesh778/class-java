@@ -21,7 +21,8 @@
 -- id int primary key auto_increment,
 -- fileName varchar(255),
 -- fileData longtext
+
 -- )
 
- select * from FILETABLE
+ select * from student
 
