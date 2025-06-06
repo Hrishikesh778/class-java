@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+
+
+
+<!--  <bean class="com.AutoWiring.Address" name="ad1">
+<property name="city" value="kalyan"></property>
+<property name="state" value="Maharashtra"></property>
+<property name="country" value="India"></property>
+</bean>  -->
+
+<!-- two objects dont work in bytype
+
+ <bean class="com.AutoWiring.Address" name="ad2">
+<property name="city" value="Mumbai"></property>
+<property name="state" value="Maharashtra"></property>
+<property name="country" value="India"></property>
+</bean> -->
+
+
+<!-- for by name  add name/ref same as defined in employee i.e address-->
+<!-- two objects  work in byName -->
+<!-- <bean class="com.AutoWiring.Address" name="address">
+<property name="city" value="kalyan"></property>
+<property name="state" value="Maharashtra"></property>
+<property name="country" value="India"></property>
+</bean> -->
+
+<!-- for constructor  only one object works in constructor -->
+<!-- <bean class="com.AutoWiring.Address" name="address">
+<constructor-arg name="city" value="kalyan"></constructor-arg>
+<constructor-arg name="state" value="Maharashtra"></constructor-arg>
+<constructor-arg name="country" value="India"></constructor-arg>
+</bean> -->
+
+
+<!-- for autowired -->  
+
+<bean class="com.AutoWiring.Address" name="ad1">
+<property name="city" value="kalyan"></property>
+<property name="state" value="Maharashtra"></property>
+<property name="country" value="India"></property>
+</bean>  
+
+
+<!-- when using qualifier between two objects -->
+
+<!-- <bean class="com.AutoWiring.Address" name="ad2">
+<property name="city" value="Mumbai"></property>
+<property name="state" value="Maharashtra"></property>
+<property name="country" value="India"></property>
+</bean>  -->
+
+
+
+
+
+<!-- <bean class="com.AutoWiring.Employee" name="ep1" autowire="byName"> -->
+<!-- <bean class="com.AutoWiring.Employee" name="ep1" autowire="byType"> -->
+
+<!-- <bean class="com.AutoWiring.Employee" name="ep1" autowire="constructor"> -->
+
+
+<!--  for autowired -->
+<bean class="com.AutoWiring.Employee" name="ep1">
+<property name="id" value="101"></property>
+<property name="name" value="hrishi"></property> 
+
+<!-- no autowire -->
+<!-- <property name="address" ref="ad1"></property> -->
+
+<!-- for constructor -->
+<!--  <constructor-arg name="id" value="101"></constructor-arg>
+<constructor-arg name="name" value="hrishi"></constructor-arg> -->
+
+
+</bean>
+
+<!-- if we add autowired in employee address  -->
+<context:annotation-config></context:annotation-config>
+
+</beans>
