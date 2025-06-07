@@ -173,6 +173,7 @@ create table dept(
 id int primary key,
 name varchar(50)
 );
+drop table dept;
 
 create table teacher(
 id int primary key,
@@ -181,7 +182,64 @@ dept_id int,
 foreign key (dept_id) references dept (id)
 );
 
-select * from student;
+-- cascading on delete and update
+use college;
+
+
+create table teacher(
+id int primary key,
+name varchar(50),
+dept_id int,
+foreign key (dept_id) references dept (id)
+on update cascade
+on delete cascade
+); 
+
+drop table teacher;
+insert into teacher values (101,"adam",101), (102,"Eve",102);
+
+insert into dept values (101,"english"), (102,"it");
+
+
+
+update dept set id=103 where id = 102;
+update dept set id=111 where id = 101;
+
+delete from dept where id =103 and id=111;
+
+-- alter table
+
+alter table student add column age int; -- to add column
+alter table student drop column age; -- to drop column
+
+-- alter examples
+alter table student add column age int not null default 19; -- to add column
+alter table student modify column age varchar(2); -- to modify datatype etc
+
+alter table student change age stu_age int; -- to change name and give new datatype
+alter table student drop column stu_age;-- to drop column
+
+alter table student rename to stu;
+alter table stu rename to student;
+
+insert into student (rollno,name ,marks,stu_age) values (107,"gargi",68,100); 
+
+-- truncate table
+truncate table student;
+
+-- practice question queries
+alter table student change name full_name varchar(50);
+SET SQL_SAFE_UPDATES = 0; -- then we can delete or change the values
+delete from student where marks<80;
+alter table student drop column grade;
+
+
+select * from dept;
+select * from teacher;
+select * from student; 
+
+
+
 
  
 
