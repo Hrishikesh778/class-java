@@ -12,7 +12,7 @@ public class Main {
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/hrishi", "root", "admin");
 			System.out.println(con);
 		}
-		catch(Exception e){
+		catch(Exception e){ 
 			System.out.println("ex"+ e);
 		} 
 	}

@@ -24,5 +24,12 @@
 
 -- )
 
- select * from student
+ select * from student;
+ 
+ create database hiber;
+ 
+use hiber;
+select * from student;
+ 
+ 
 
