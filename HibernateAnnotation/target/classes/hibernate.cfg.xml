@@ -19,5 +19,6 @@
 		
 		
 		<mapping class="com.HibernateAnnotation.Employee" />
+		<mapping class="com.embeddableAnno.Student" />
 	</session-factory>
 </hibernate-configuration>

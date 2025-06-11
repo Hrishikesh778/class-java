@@ -16,7 +16,7 @@ public class Employee {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	public long id;
 	
-	@Column(name ="Student_Name")
+	@Column(name ="Employee_Name")
 	public String name;
 	public Double salary;
 	public Boolean isActive;
