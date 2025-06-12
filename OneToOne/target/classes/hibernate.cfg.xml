@@ -20,5 +20,8 @@
 
 		<mapping class="com.OneToOne.Employee" />
 		<mapping class="com.OneToOne.Passport" />
+
+		<mapping class="OneToMany.Student" />
+		<mapping class="OneToMany.Event" />
 	</session-factory>
 </hibernate-configuration>
