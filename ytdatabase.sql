@@ -233,7 +233,81 @@ SET SQL_SAFE_UPDATES = 0; -- then we can delete or change the values
 delete from student where marks<80;
 alter table student drop column grade;
 
+-- joins
+create table student2(
+id int primary key,
+name varchar(50)
+);
 
+insert into student2(id,name) values (101,"adam"),(102,"bob"),(103,"casey");
+
+create table course(
+id int primary key,
+course varchar(50)
+);
+
+insert into course(id,course) values (102,"english"),(105,"math"),(103,"science"),(107,"science");
+
+-- inner join
+select * from student2 inner join course on student2.id=course.id;
+-- inner join with alias
+select * from student2 as a inner join course as b on a.id=b.id;
+-- left join
+select * from student2 as a left join course as b on a.id=b.id;
+-- right join
+select * from student2 as a right join course as b on a.id=b.id;
+
+-- full join
+select * from student2 as a left join course as b on a.id=b.id
+union
+select * from student2 as a right join course as b on a.id=b.id;
+
+-- left exclusive join
+select * from student2 as a left join course as b on a.id=b.id where b.id is null;
+
+-- right exclusive join
+select * from student2 as a right join course as b on a.id=b.id where a.id is null;
+
+-- full exclusive join
+select * from student2 as a left join course as b on a.id=b.id where b.id is null
+union
+select * from student2 as a right join course as b on a.id=b.id where a.id is null;
+
+-- self join
+
+create table employee(
+id int primary key,
+name varchar(50),
+manager_id int
+);
+
+insert into employee (id,name,manager_id) values (101,"adam",103),(102,"bob",104),(103,"casey",null),(104,"donald",103);
+
+select * from employee as a
+join employee as b
+on a.id = b.manager_id;
+
+select a.name as manager_name,b.name from employee as a
+join employee as b
+on a.id = b.manager_id;
+
+-- union
+
+select name from employee
+union 
+select name from employee;
+
+-- union all
+select name from employee
+union all
+select name from employee;
+
+
+
+select * from employee;
+select * from student2; 
+select * from course; 
+use college;  
 select * from dept;
 select * from teacher;
 select * from student; 
