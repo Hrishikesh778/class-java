@@ -77,7 +77,7 @@ public class Passport {
 	@Override
 	public String toString() {
 		return "Passport [id=" + id + ", passportNo=" + passportNo + ", issuedCountry=" + issuedCountry
-				+ ", expirationDate=" + expirationDate + ", employee=" + employee + "]";
+				+ ", expirationDate=" + expirationDate + "]";
 	}
 
 
