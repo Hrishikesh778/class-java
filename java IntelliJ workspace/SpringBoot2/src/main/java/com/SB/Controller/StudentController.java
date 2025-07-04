@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class StudentController {
     //rest api and crud operation
     @Autowired
@@ -55,6 +56,8 @@ public class StudentController {
         studentService.deleteStudentById(id);
         return "Student data deleted Successfully";
     }
+
+
 
 
 }

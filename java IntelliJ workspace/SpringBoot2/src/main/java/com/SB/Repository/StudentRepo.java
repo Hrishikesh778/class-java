@@ -24,9 +24,10 @@ public interface StudentRepo extends JpaRepository<Student,Long> {
     @Query("SELECT s FROM Student s WHERE LOWER(s.name) LIKE LOWER(CONCAT(:prefix, '%'))")
     List<Student> findByNameStartingWithIgnoreCase2(@Param("prefix") String prefix);
 
-    @Query("SELECT s FROM Student s WHERE LOWER(s.name) LIKE LOWER(CONCAT(:prefix, '%'))")
-    Page<Student> findByNameStartingWithIgnoreCase2(@Param("prefix") String prefix, Pageable pageable);
+//    @Query("SELECT s FROM Student s WHERE LOWER(s.name) LIKE LOWER(CONCAT(:prefix, '%'))")
+//    Page<Student> findByNameStartingWithIgnoreCase2(@Param("prefix") String prefix, Pageable pageable);
 //    List<Student> findByNameStartingWithIgnoreCase2(@Param("prefix") String prefix, Pageable pageable);
 
-
+    @Query("SELECT s FROM Student s WHERE LOWER(s.name) LIKE LOWER(CONCAT(:prefix, '%'))")
+    Page<Student> findByNameStartingWithIgnoreCase2(@Param("prefix") String prefix, Pageable pageable);
 }

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
@@ -26,9 +27,11 @@ public class StudentService {
         return studentRepo.findAll();
     }
 
-    public void deleteStudentById(Long id){
+    public long deleteStudentById(Long id){
 
         studentRepo.deleteById(id);
+
+        return id;
     }
 
     public List<Student> searchByStudentName(String prifix){
@@ -44,6 +47,11 @@ public class StudentService {
     public Page<Student> searchByStudentName(String prifix, Pageable pageable){
 
         return   studentRepo.findByNameStartingWithIgnoreCase2(prifix,pageable);
+    }
+
+    public Optional<Student> getStudentByid(long id){
+
+        return studentRepo.findById(id);
     }
 
 }

@@ -10,9 +10,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/student")
+@CrossOrigin(origins = "http://localhost:5173")
 public class StudentControllerRestful {
 
     @Autowired
@@ -45,9 +47,9 @@ public class StudentControllerRestful {
     //delete using id in url
     @DeleteMapping("/deleteById/{id}")
     @ResponseBody
-    public String deleteStudent(@PathVariable Long id){
-        studentService.deleteStudentById(id);
-        return "Student data deleted Successfully";
+    public long deleteStudent(@PathVariable Long id){
+//        studentService.deleteStudentById(id);
+        return studentService.deleteStudentById(id);
     }
 
     @PostMapping("/searchByStudentNameStartWith")
@@ -71,4 +73,12 @@ public class StudentControllerRestful {
         Pageable pageable= PageRequest.of(student.getOffset(),student.getPageSize());
         return studentService.searchByStudentName(student.getName(),pageable);
     }
+
+
+    @GetMapping("/getByID/{id}")
+    @ResponseBody
+    public Optional<Student> getAllStudent(@PathVariable Long id){
+        return studentService.getStudentByid(id);
+    }
+
 }
